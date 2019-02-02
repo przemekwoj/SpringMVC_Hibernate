@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -53,6 +54,23 @@ public class CoursesDaoImpl implements CoursesDao
 		Session currentSession = sessionFactory.getCurrentSession();
 
 		currentSession.save(courses);
+	}
+
+	public List<Courses> getAllCourses()
+	{
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Query query = currentSession.createQuery("from Courses");
+		List allCourses= query.list();
+		
+		return allCourses;
+	}
+
+	public void saveCourse(Courses course)
+	{
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.save(course);
 	}
 
 	

@@ -70,6 +70,26 @@ public class DatabaseServiceImpl implements DatabaseService
 	{
 		coursesDao.createCourses(courses);
 	}
+
+	public List<Users> getAllUsers() 
+	{
+		return usersDao.getAllUsers();
+	}
+
+	public void saveUser(Users user) 
+	{
+		usersDao.saveUser(user);	
+	}
+
+	public List<Courses> getAllCourses() 
+	{
+		return coursesDao.getAllCourses();
+	}
+
+	public void saveCourse(Courses course) 
+	{
+		coursesDao.saveCourse(course);		
+	}
 	
 	
 

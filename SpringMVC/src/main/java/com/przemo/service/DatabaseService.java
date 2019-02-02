@@ -27,6 +27,13 @@ public interface DatabaseService
 	
 	public void createCourses(Courses courses);
 	
+	public List<Users> getAllUsers();
+	
+	public List<Courses> getAllCourses();
+	
+	public void saveUser(Users user);
+	
+	public void saveCourse(Courses course);
 	
 
 	

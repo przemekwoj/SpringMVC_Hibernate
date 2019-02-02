@@ -17,4 +17,8 @@ public interface UsersDao
 	
 	public void createUser(Users user);
 	
+	public List<Users> getAllUsers();
+	
+	public void saveUser(Users user);
+	
 }

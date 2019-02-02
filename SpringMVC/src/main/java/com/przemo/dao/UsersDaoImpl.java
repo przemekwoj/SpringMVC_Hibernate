@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -49,6 +50,23 @@ public class UsersDaoImpl implements UsersDao
 	}
 
 	public void createUser(Users user) 
+	{
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.save(user);
+	}
+
+	public List<Users> getAllUsers() 
+	{
+		Session currentSession = sessionFactory.getCurrentSession();
+	
+		Query query = currentSession.createQuery("from Users");
+		List allUsers = query.list();
+		
+		return allUsers;
+	}
+
+	public void saveUser(Users user) 
 	{
 		Session currentSession = sessionFactory.getCurrentSession();
 		

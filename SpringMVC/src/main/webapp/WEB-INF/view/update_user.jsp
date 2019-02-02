@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	test dziala
+	<c:url var="manageLink" value="/begin/table">
+	</c:url>
+	<a href=${manageLink}>Back</a>
 </body>
 </html>

@@ -16,4 +16,8 @@ public interface CoursesDao
 	public void saveOrUpdateCourse(int theId);
 	
 	public void createCourses(Courses courses);
+	
+	public List<Courses> getAllCourses();
+	
+	public void saveCourse(Courses course);
 }
