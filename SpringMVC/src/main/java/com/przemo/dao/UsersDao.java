@@ -13,7 +13,7 @@ public interface UsersDao
 	
 	public void deleteUser(int theId);
 
-	public void saveOrUpdateUser(int theId);
+	public void updateUser(Users user);
 	
 	public void createUser(Users user);
 	

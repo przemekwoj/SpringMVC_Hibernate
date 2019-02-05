@@ -41,7 +41,7 @@ public class CoursesDaoImpl implements CoursesDao
 		currentSession.delete( getCourses(theId) );
 	}
 
-	public void saveOrUpdateCourse(int theId) 
+	public void supdateCourse(int theId) 
 	{
 		Session currentSession = sessionFactory.getCurrentSession();
 		
@@ -71,6 +71,16 @@ public class CoursesDaoImpl implements CoursesDao
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		currentSession.save(course);
+	}
+
+
+	@Override
+	public void updateCourse(Courses course) 
+	{
+		
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		currentSession.update(course);
 	}
 
 	

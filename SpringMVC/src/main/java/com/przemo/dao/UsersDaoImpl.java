@@ -41,11 +41,11 @@ public class UsersDaoImpl implements UsersDao
 		
 	}
 
-	public void saveOrUpdateUser(int theId) 
+	public void updateUser(Users user) 
 	{
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		currentSession.saveOrUpdate( getUsers(theId) );
+		currentSession.update(user);
 		
 	}
 

@@ -28,18 +28,42 @@ public class UserController
 	@Autowired
 	private DatabaseService databaseService;
 	
-	@GetMapping("/update")
-	public String updateUser(@RequestParam("userId") int theId)
+	@GetMapping("/updateForm")
+	public String updateUser(@RequestParam("userId") int theId,Model theModel)
 	{
-		System.out.println("updated"+theId);
+		Users user = databaseService.getUsers(theId);
+		theModel.addAttribute("user",user);
+		theModel.addAttribute("allCourses",databaseService.getAllCourses());
+		
 		return "update_user";
+	}
+	
+	 
+	@PostMapping("/UpdateUser")
+	public ModelAndView updatedUser(@ModelAttribute("user") Users user,@RequestParam("checkbox") String[] courseId_fromCheckbox)
+	{
+		List<Courses> coursesList = new ArrayList<Courses>();
+		
+		for(int i = 0 ; i < courseId_fromCheckbox.length ; i ++)
+		{
+			int courseId = Integer.parseInt(courseId_fromCheckbox[i]);
+			Courses course = databaseService.getCourses(courseId);
+			coursesList.add(course);
+		}
+		Users user_to_Update = databaseService.getUsers(user.getId());
+		user_to_Update.setEmail(user.getEmail());
+		user_to_Update.setPassword(user.getPassword());
+		user_to_Update.setCoursesList(coursesList);
+		
+		databaseService.updateUser(user_to_Update);
+		
+		return new ModelAndView("redirect:/begin/table");
 	}
 	
 	@GetMapping("/delete")
 	public String deleteUser(@RequestParam("userId") int theId)
 	{
 		
-		System.out.println("deleted"+theId);
 		databaseService.deleteUser(theId);
 		return "firstpage";
 	}
@@ -88,8 +112,8 @@ public class UserController
 			ModelAndView modelAndView = new ModelAndView("redirect:/user/addUserForm");
 			redirectAttributes.addFlashAttribute("error", "you didnt use email!");
 			return modelAndView;
-		}
-			
-
+		}	
 	}
+	
+	
 }

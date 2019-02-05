@@ -13,7 +13,7 @@ public interface CoursesDao
 	
 	public void deleteCourse(int theId);
 
-	public void saveOrUpdateCourse(int theId);
+	public void updateCourse(Courses course);
 	
 	public void createCourses(Courses courses);
 	

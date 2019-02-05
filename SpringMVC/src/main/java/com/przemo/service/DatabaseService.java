@@ -19,9 +19,9 @@ public interface DatabaseService
 	
 	public void deleteCourse(int theId);
 	
-	public void saveOrUpdateUser(int theId);
+	public void updateUser(Users user);
 	
-	public void saveOrUpdateCourse(int theId);
+	public void updateCourse(Courses course);
 	
 	public void createUser(Users user);
 	

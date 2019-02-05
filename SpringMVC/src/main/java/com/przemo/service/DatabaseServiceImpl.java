@@ -51,14 +51,9 @@ public class DatabaseServiceImpl implements DatabaseService
 		coursesDao.deleteCourse(theId) ;
 	}
 
-	public void saveOrUpdateUser(int theId)
+	public void updateUser(Users user)
 	{
-		usersDao.saveOrUpdateUser(theId);
-	}
-
-	public void saveOrUpdateCourse(int theId)
-	{
-		coursesDao.saveOrUpdateCourse(theId);
+		usersDao.updateUser(user);
 	}
 
 	public void createUser(Users user) 
@@ -89,6 +84,11 @@ public class DatabaseServiceImpl implements DatabaseService
 	public void saveCourse(Courses course) 
 	{
 		coursesDao.saveCourse(course);		
+	}
+
+	@Override
+	public void updateCourse(Courses course) {
+		coursesDao.updateCourse(course);
 	}
 	
 	

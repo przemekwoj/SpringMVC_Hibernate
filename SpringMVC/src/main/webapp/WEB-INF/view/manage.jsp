@@ -20,7 +20,7 @@
 				
 				<c:forEach var="tempUser" items="${allUsers}">
 				
-					<c:url var="updateLink" value="/user/update">
+					<c:url var="updateLink" value="/user/updateForm">
 						<c:param name="userId" value="${tempUser.id}" />
 					</c:url>	
 					
@@ -63,6 +63,11 @@
 
 	 	<input type="submit" value="add Course"
 	onclick="window.location.href='${addCourseLink}','_blank'">
+	
+	<c:url var="showCoursesLink" value="/course/showCoursesForm"></c:url>
+
+	 	<input type="submit" value="show Courses"
+	onclick="window.location.href='${showCoursesLink}','_blank'">
 	
 </body>
 </html>
